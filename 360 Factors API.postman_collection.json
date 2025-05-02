@@ -1,0 +1,291 @@
+{
+	"info": {
+		"_postman_id": "2431d33a-22a2-4d40-b2ce-ebbe04939a16",
+		"name": "360 Factors API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19783177"
+	},
+	"item": [
+		{
+			"name": "auth token generation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData =pm.response.json()\r",
+							"\r",
+							"pm.test(\"response is not empty\",function(){\r",
+							"\r",
+							"    pm.expect(jsonData).not.to.have.length(0)\r",
+							"})\r",
+							"\r",
+							"postman.setNextRequest(\"ping\")"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-mock-response-name",
+						"value": "Auth token missing",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n    \"username\" : \"kxicustomer\",\r\n    \"user_key\" : \"4d879c8f63aa5c8f0b5891c8dc36716b035a68b0\",\r\n    \"customer_code\" : \"CUSTKXI\",\r\n    \"customer_api_key\" : \"387d7d7370643a553762335724325656110a3a5417:b8075ee93a18e9e0031b5cf4f76f74cc\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://predict-micro-stage-api.360factors.com/api/v1/auth/generate-token?mock_msg=Empty token Copy",
+					"protocol": "https",
+					"host": [
+						"predict-micro-stage-api",
+						"360factors",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"generate-token"
+					],
+					"query": [
+						{
+							"key": "mock_msg",
+							"value": "Empty token Copy"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Empty token",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n    \"username\" : \"abc002\",\r\n    \"user_key\" : \"bd95b3e4c78be11c72cb7b715c8642d86057a14c\",\r\n    \"customer_code\" : \"ABCBANK\",\r\n    \"customer_api_key\" : \"622f29227663675126343a5c7b6c7d62743d0f366b7a7f3f7037380c3364330a737475356f4e331a11060559:0e1ccb17852b04903fba081b61eac36e\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://predict-micro-stage-api.360factors.com/api/v1/auth/generate-token",
+							"protocol": "https",
+							"host": [
+								"predict-micro-stage-api",
+								"360factors",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"generate-token"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 02 May 2025 19:11:43 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"time_unit\": \"Minute\",\n    \"auth_token\": \"akZKcCLpa53yntLFXoZYkJWxURO0rI+8wgVWJLJ3cp1BKkSLes3cE6FQpmXRGuodl92/56m2RDCPuGItZlFjYw==\",\n    \"expires_in\": 2880,\n    \"status\": 201\n}"
+				},
+				{
+					"name": "Auth Token Missing",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n    \"username\" : \"abc002\",\r\n    \"user_key\" : \"bd95b3e4c78be11c72cb7b715c8642d86057a14c\",\r\n    \"customer_code\" : \"ABCBANK\",\r\n    \"customer_api_key\" : \"622f29227663675126343a5c7b6c7d62743d0f366b7a7f3f7037380c3364330a737475356f4e331a11060559:0e1ccb17852b04903fba081b61eac36e\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://predict-micro-stage-api.360factors.com/api/v1/auth/generate-token",
+							"protocol": "https",
+							"host": [
+								"predict-micro-stage-api",
+								"360factors",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"generate-token"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 02 May 2025 19:11:43 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"time_unit\": \"Minute\",\n    \"auth_token\": \"akZKcCLpa53yntLFXoZYkJWxURO0rI+8wgVWJLJ3cp1BKkSLes3cE6FQpmXRGuodl92/56m2RDCPuGItZlFjYw==\",\n    \"expires_in\": 2880,\n    \"status\": 201\n}"
+				}
+			]
+		},
+		{
+			"name": "getKxiDefinition",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eu2n/0neNRXnEGJRrl427fuvdXiJxxSLDXqDyHZAEFU/oWdRnQobPWEdFIR1bMHA1FyTCIFmEj7RxFgDuLDujw==",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://predict-micro-stage-api.360factors.com/api/v1/kxi/definitions/622f29227663675126343a5c7b6c7d62743d0f366b7a7f3f7037380c3364330a737475356f4e331a11060559:0e1ccb17852b04903fba081b61eac36e/bd95b3e4c78be11c72cb7b715c8642d86057a14c",
+					"protocol": "https",
+					"host": [
+						"predict-micro-stage-api",
+						"360factors",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"kxi",
+						"definitions",
+						"622f29227663675126343a5c7b6c7d62743d0f366b7a7f3f7037380c3364330a737475356f4e331a11060559:0e1ccb17852b04903fba081b61eac36e",
+						"bd95b3e4c78be11c72cb7b715c8642d86057a14c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create/updateKxi",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eu2n/0neNRXnEGJRrl427fuvdXiJxxSLDXqDyHZAEFU/oWdRnQobPWEdFIR1bMHA1FyTCIFmEj7RxFgDuLDujw==",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " { \r\n  \"kxi_definition_id\": 4926, \r\n  \"sample_value\": 60.00, \r\n  \"sample_date\": \"05/15/2023\", \r\n  \"management_comment\": \"this is a management comment entering through api\", \r\n  \"customer_api_key\":\" 622f29227663675126343a5c7b6c7d62743d0f366b7a7f3f7037380c3364330a737475356f4e331a11060559:0e1ccb17852b04903fba081b61eac36e\", \r\n  \"user_key\":\" bd95b3e4c78be11c72cb7b715c8642d86057a14c\" \r\n\r\n} \r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://predict-micro-stage-api.360factors.com/api/v1/kxi/data",
+					"protocol": "https",
+					"host": [
+						"predict-micro-stage-api",
+						"360factors",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"kxi",
+						"data"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
